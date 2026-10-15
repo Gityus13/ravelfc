@@ -4,20 +4,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ravel FC</title>
-<link rel="icon" href="logo.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Ravel FC">
+<meta property="og:description" content="Ravel FC football team, 2026. Squad, lineup and manager.">
+<meta property="og:image" content="logo.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
 <meta name="description" content="Ravel FC football team, 2026">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add("loading")</script>
+<noscript><style>#loader{display:none}html.loading{overflow:auto}</style></noscript>
 </head>
 <body>
 
+<div class="loader" id="loader" aria-hidden="true">
+  <img src="logo.png" alt="" onerror="this.onerror=null;this.src='favicon.svg'">
+  <div class="lcount"><span id="lcount">0</span><i>%</i></div>
+  <div class="lbar"><div id="lbar"></div></div>
+</div>
 <div class="cursor" id="cursor"></div>
 <div class="prog" id="prog"></div>
 <nav>
-  <a class="mark" href="#top"><img class="logo" src="logo.png" alt="" onerror="this.remove()"><span>RAVEL FC</span></a>
+  <a class="mark" href="#top"><img class="logo" src="logo.png" alt="" onerror="this.onerror=null;this.src='favicon.svg'"><span>RAVEL FC</span></a>
   <ul>
+    <li><a href="#club">Club</a></li>
     <li><a href="#squad">Squad</a></li>
     <li><a href="#lineup">Lineup</a></li>
     <li><a href="#manager">Manager</a></li>
@@ -36,12 +53,22 @@
       <h1 id="htitle" aria-label="Ravel"></h1>
       <div class="sub"><b>FC</b>Season 2026</div>
     </div>
-    <img class="crest" src="logo.png" alt="Ravel FC crest" onerror="this.remove()">
+    <img class="crest" src="logo.png" alt="Ravel FC crest" onerror="this.onerror=null;this.src='favicon.svg'">
   </div>
   <div class="scroll"></div>
 </header>
 
 <div class="ticker" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="club">
+  <p class="statement" id="statement">Ravel FC. A new football club, founded in 2026. Seven on the pitch, one badge, one plan.</p>
+  <div class="stats">
+    <div><b data-n="2026">2026</b><span>Founded</span></div>
+    <div><b data-n="7">7</b><span>Starters</span></div>
+    <div><b>1-3-1-1</b><span>Formation</span></div>
+    <div><b data-n="1">1</b><span>Substitute</span></div>
+  </div>
+</section>
 
 <section id="squad">
   <div class="head">
@@ -80,8 +107,17 @@
   </div>
 </section>
 
+<section id="sponsors">
+  <div class="head">
+    <h2>Sponsors</h2>
+    <p>The brands backing Ravel FC.</p>
+  </div>
+  <div class="sgrid" id="sgrid"></div>
+</section>
+
 <footer>
   <span>&copy; <span id="yr"></span> Ravel FC</span>
+  <div class="links" id="links"></div>
   <span>Website by <a href="https://gityus13.github.io/"><strong>GITYUS13</strong></a></span>
 </footer>
 

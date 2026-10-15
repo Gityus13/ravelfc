@@ -40,6 +40,14 @@ if(fine) $('.card').forEach(c=>{
 const tk=gsap.to('.ticker div',{xPercent:-50,repeat:-1,duration:30,ease:'none'});
 ScrollTrigger.create({onUpdate:s=>{const v=Math.min(Math.abs(s.getVelocity())/250,8);gsap.to(tk,{timeScale:1+v,duration:.2,overwrite:true,onComplete:()=>gsap.to(tk,{timeScale:1,duration:1.2})});}});
 
+/* Club statement: words light up as you scroll, stats count up */
+gsap.fromTo('.statement .w',{opacity:.15},{opacity:1,stagger:.1,ease:'none',scrollTrigger:{trigger:'.statement',start:'top 80%',end:'bottom 45%',scrub:true}});
+gsap.from('.stats div',{y:50,opacity:0,stagger:.12,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.stats',start:'top 88%'}});
+$('.stats b[data-n]').forEach(b=>{const o={v:0},t=+b.dataset.n;gsap.to(o,{v:t,duration:1.8,ease:'power2.out',snap:{v:1},onUpdate:()=>b.textContent=o.v,scrollTrigger:{trigger:b,start:'top 90%',once:true}});});
+
+/* Sponsors */
+gsap.from('.stile',{opacity:0,y:40,stagger:.1,duration:.9,ease:'power3.out',scrollTrigger:{trigger:'.sgrid',start:'top 90%'}});
+
 /* Manager portrait: reveal and parallax */
 gsap.fromTo('.portrait',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:'.pres',start:'top 75%'}});
 gsap.fromTo('.pres > div:last-child > *',{y:50,opacity:0},{y:0,opacity:1,stagger:.12,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.pres',start:'top 70%'}});

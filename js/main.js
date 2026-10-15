@@ -17,6 +17,17 @@ document.getElementById('htitle').innerHTML = [...'RAVEL'].map((c,i)=>`<span><i 
 const glow=document.getElementById('glow'), ht=document.getElementById('htitle');
 document.querySelector('.hero').addEventListener('pointermove',e=>{glow.style.setProperty('--x',e.clientX+'px');glow.style.setProperty('--y',e.clientY+'px');});
 
+/* Social links: fill in the ones you have, empty ones are hidden */
+const links={instagram:"https://www.instagram.com/ravelfc_2026/", tiktok:"", youtube:"", email:""};
+document.getElementById('links').innerHTML=Object.entries(links).filter(([,v])=>v).map(([k,v])=>`<a href="${k==='email'?'mailto:'+v:v}" target="_blank" rel="noopener">${k[0].toUpperCase()+k.slice(1)}</a>`).join('');
+const st=document.getElementById('statement'); st.innerHTML=st.textContent.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ');
+
+/* Sponsors: put logos in sponsors/ and add them here. Example: {name:"Brand",logo:"sponsors/brand.png",url:"https://brand.com"} */
+const sponsors=[
+  {name:"GITYUS13", logo:"sponsors/gityus13.png", url:"https://gityus13.github.io"}
+];
+document.getElementById('sgrid').innerHTML=sponsors.map(s=>`<a class="stile" ${s.url?`href="${s.url}" target="_blank" rel="noopener"`:''} aria-label="${s.name}"><img src="${s.logo}" alt="${s.name}"></a>`).join('');
+
 /* Ticker */
 document.getElementById('mq').innerHTML = Array(10).fill('<span>Ravel FC</span><i></i><span>2026</span><i></i>').join('');
 
@@ -99,3 +110,11 @@ document.querySelectorAll('#bench button').forEach(b=>b.onclick=()=>show(+b.data
 const prog = document.getElementById('prog');
 addEventListener('scroll',()=>{ prog.style.width = (scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%'; },{passive:true});
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* Loading screen */
+(()=>{const L=document.getElementById('loader'),n=document.getElementById('lcount'),bar=document.getElementById('lbar');
+let v=0,loaded=document.readyState==='complete';addEventListener('load',()=>loaded=true);setTimeout(()=>loaded=true,4000);const t0=performance.now();
+function tick(t){let target=Math.min((t-t0)/1600,1)*100;if(!loaded)target=Math.min(target,90);v+=(target-v)*.2;n.textContent=Math.round(v);bar.style.transform=`scaleX(${v/100})`;
+ if(v>99.4&&loaded)return finish();requestAnimationFrame(tick);}
+function finish(){n.textContent=100;bar.style.transform='scaleX(1)';setTimeout(()=>{L.classList.add('out');document.documentElement.classList.remove('loading');setTimeout(()=>{L.remove();window.ScrollTrigger&&ScrollTrigger.refresh();},1100);},250);}
+requestAnimationFrame(tick);})();

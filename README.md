@@ -7,19 +7,31 @@ Website for Ravel FC (2026). Plain HTML, CSS and JavaScript with GSAP, ScrollTri
 ```
 ravel-fc/
 ├── index.html
-├── logo.png          <- add the crest here
+├── logo.png          <- add the crest here (favicon.svg is the fallback)
+├── favicon.svg
+├── site.webmanifest
+├── 404.html
 ├── css/style.css
 ├── js/
 │   ├── main.js       <- players, squad, lineup, pop-up
 │   ├── effects.js    <- GSAP animations
 │   └── vendor/       <- gsap, ScrollTrigger, lenis (local copies)
-└── photos/           <- add player photos here
+├── photos/           <- add player photos here
+└── sponsors/         <- add sponsor logos here
 ```
 
 ## Photos
 
 Put them in `photos/` named by player: `Khazar.png`, `Javad.png`, `Onur.png`, `Kanan.png`, `Artoghrul.png`, `Fateh.png`, `Ali.png`, `Rasul.png`.
 `.jpg`, `.jpeg` and `.webp` work too. Missing photos show an outlined number instead.
+
+## Social links
+
+In `js/main.js` fill in the `links` object (instagram, tiktok, youtube, email). Empty ones are hidden.
+
+## Sponsors
+
+Put logos in `sponsors/` and add them to the `sponsors` list in `js/main.js`.
 
 ## Edit players
 
