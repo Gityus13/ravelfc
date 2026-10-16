@@ -15,7 +15,6 @@ if(window.Lenis){
 
 /* Hero: scroll parallax */
 gsap.to('#htitle',{yPercent:25,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
-gsap.to('.crest',{yPercent:-30,rotate:8,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
 gsap.to('.swoosh',{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
 
 /* Section titles: masked rise */
@@ -69,7 +68,7 @@ if(fine){
     el.addEventListener('pointerenter',()=>gsap.to(cur,{scale:3.2,duration:.4,ease:'power3'}));
     el.addEventListener('pointerleave',()=>gsap.to(cur,{scale:1,duration:.4,ease:'power3'}));
   });
-  $('nav ul a,.bench button,.mnav button').forEach(el=>{
+  $('nav ul a,.mnav button').forEach(el=>{
     const x=gsap.quickTo(el,'x',{duration:.5,ease:'power3'}), y=gsap.quickTo(el,'y',{duration:.5,ease:'power3'});
     el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();x((e.clientX-r.left-r.width/2)*.3);y((e.clientY-r.top-r.height/2)*.3);});
     el.addEventListener('pointerleave',()=>{x(0);y(0);});

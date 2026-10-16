@@ -24,6 +24,7 @@ ravel-fc/
 
 Put them in `photos/` named by player: `Khazar.png`, `Javad.png`, `Onur.png`, `Kanan.png`, `Artoghrul.png`, `Fateh.png`, `Ali.png`, `Rasul.png`.
 `.jpg`, `.jpeg` and `.webp` work too. Missing photos show an outlined number instead.
+Photo names are case-sensitive on GitHub Pages (`Ali.png`, not `ali.PNG`).
 
 ## Social links
 
@@ -36,6 +37,7 @@ Put logos in `sponsors/` and add them to the `sponsors` list in `js/main.js`.
 ## Edit players
 
 Open `js/main.js` and change the `players` list at the top (name, position, number, pitch position).
+Add `sub:true` to a player to keep them in the squad section but off the pitch lineup (Ali is done this way). Subs have no label on the site, they just show their position.
 
 ## Run locally
 

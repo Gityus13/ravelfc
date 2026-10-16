@@ -1,6 +1,8 @@
 /* ---------- EDIT HERE ----------
    Photos go in the photos/ folder, named like Ali.png, Khazar.png, Rasul.png
    Logo goes next to index.html as logo.png
+   sub:true = shown in the squad section only, NOT drawn on the pitch lineup (no "sub" label anywhere).
+   x,y = position on the pitch (600 x 800).
 ------------------------------- */
 const players = [
   {name:"Khazar",   pos:"Goalkeeper", num:1,  x:300,y:700},
@@ -9,12 +11,12 @@ const players = [
   {name:"Kanan",    pos:"Defence",    num:5,  x:470,y:545},
   {name:"Artoghrul",pos:"Midfield",   num:7,  x:300,y:385},
   {name:"Fateh",    pos:"Attack",     num:27, x:300,y:200},
-  {name:"Ali",      pos:"Substitute", num:"",  sub:true}
+  {name:"Ali",      pos:"Defence",    num:47, sub:true},
 ];
 
 /* Hero title letters, glow, parallax */
 document.getElementById('htitle').innerHTML = [...'RAVEL'].map((c,i)=>`<span><i style="--i:${i}">${c}</i></span>`).join('');
-const glow=document.getElementById('glow'), ht=document.getElementById('htitle');
+const glow=document.getElementById('glow');
 document.querySelector('.hero').addEventListener('pointermove',e=>{glow.style.setProperty('--x',e.clientX+'px');glow.style.setProperty('--y',e.clientY+'px');});
 
 /* Social links: fill in the ones you have, empty ones are hidden */
@@ -101,10 +103,6 @@ document.querySelectorAll('.pl').forEach(g=>{
   g.onclick=()=>show(+g.dataset.i);
   g.onkeydown=e=>{ if(e.key==='Enter') show(+g.dataset.i); };
 });
-
-/* Bench */
-document.getElementById('bench').innerHTML = players.map((p,i)=>p.sub?`<button data-i="${i}">${p.num?`<b>#${p.num}</b>`:''}${p.name}</button>`:'').join('');
-document.querySelectorAll('#bench button').forEach(b=>b.onclick=()=>show(+b.dataset.i));
 
 /* Scroll progress */
 const prog = document.getElementById('prog');
